@@ -1,0 +1,45 @@
+#################################
+# Version & seed settings
+#################################
+
+version: "default"    # is used for log-folder name
+seed: 1               # data sampling and weights initialization
+
+#################################
+# System settings
+#################################
+
+# Initial Condition
+y0: 0.1
+# Simulation Length
+T: 8
+
+#################################
+# Data settings (sampled anewly at each epoch)
+#################################
+
+N_col: 1024
+
+#################################
+# PhysicsInformedNN settings
+#################################
+
+N_hidden: 2
+N_neurons: 20
+activation: 'swish'
+
+#################################
+# Training settings
+#################################
+
+N_epochs: 10000
+learning_rate: 0.001
+decay_rate: 1.0
+
+#################################
+# Callback and Log settings
+#################################
+
+freq_log: 10
+freq_print: 100
+keys_print: ['loss']
