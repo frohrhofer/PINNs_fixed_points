@@ -1,0 +1,6 @@
+tensorflow>2.2
+scipy
+pyDOE
+pyyaml
+pandas
+scikit-learn
