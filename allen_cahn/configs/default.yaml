@@ -1,0 +1,45 @@
+######################
+# Version & seeds
+######################
+
+version: "default"    # is used for log-folder name
+seed: 1               # data sampling and weights initialization
+
+######################
+# Computational domain
+######################
+
+x_domain: [-1, 1]
+t_domain: [0, 1.0]
+
+#################################
+# Data settings (sampled anewly at each epoch)
+#################################
+
+N_col: 1024
+N_IC: 128
+N_BC: 128
+
+######################
+# Network Settings
+######################
+
+N_hidden: 6
+N_neurons: 100
+activation: 'tanh'
+
+######################
+# Optimizer Settings
+######################
+
+N_epochs: 10000
+learning_rate: 0.001
+decay_rate: 1.0
+
+#################################
+# Callback and Log settings
+#################################
+
+freq_log: 10
+freq_print: 100
+keys_print: ['loss_data', 'loss_IC', 'loss_BC', 'loss_AC']
