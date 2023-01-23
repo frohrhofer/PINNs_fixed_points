@@ -26,10 +26,21 @@ The code is split into four section, resampling the four dynamical systems discu
 - Undamped Pendulum
 
 Each system folder contains a jupyter notebook (**main.ipynb**) that provides the main starting point for usage.
-In that notebook, the configuration of the system, PINN and optimization is loaded in the beginning, which can be modified either by changing the ***.yaml** file in the *configs* folder or by passing a dictionary through *config_update* in the *load_config* function.
-Based on the configuration settings, a Physics-Informed Neural Network (PINN) is initialized and trained. After training, a few plotting functions are provided to visualize the training behaviour and final PINN prediction, compared to the reference data. For the Navier-Stokes system, the reference data has to be downloaded first by running through the notebook (**download_DNS_data.ipynb**) in the *data* folder.
+In that notebook, the configuration of the system, the Physics-Informed Neural Network (PINN) and its optimization is loaded in the beginning, which can be modified either by changing the ***.yaml** file in the *configs* folder or by passing a dictionary through *config_update* in the *load_config* function.
+Based on the configuration settings, a PINN instance is initialized and trained. After training, a few plotting functions are provided to visualize the training behaviour and final PINN prediction, compared to the reference data. For the Navier-Stokes system, the reference data has to be downloaded first by running through the notebook (**download_DNS_data.ipynb**) in the *data* folder.
 
 The settings in the **default.yaml** configuration - as well as many other configurations, as you might know from reading the paper - results in an **unsuccessful PINN training influenced by a fixed point inherent to the dynamical system**.
 
 For more information, questions or requests, please drop an E-mail at [frohrhofer@acm.org](frohrhofer@acm.org).
+
+## Citation
+```
+@article{rohrhofer2022on,
+  title={On the Role of Fixed Points of Dynamical Systems in Training Physics-Informed Neural Networks},
+  author={Franz M. Rohrhofer and Stefan Posch and Clemens G{\"o}{\ss}nitzer and Bernhard C Geiger},
+  journal={Transactions on Machine Learning Research},
+  year={2022},
+  url={https://openreview.net/forum?id=56cTmVrg5w}
+}
+```
 
