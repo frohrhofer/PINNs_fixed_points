@@ -1,0 +1,63 @@
+######################
+# Version & seeds
+######################
+
+version: "default"    # is used for log-folder name
+seed: 1               # data sampling and weights initialization
+
+######################
+# Spatial Computational domain
+######################
+
+x_domain: [-5, 15]    
+y_domain: [-10, 10]   
+
+######################
+# Temporal domain and Initial Sequence
+######################
+
+# one vortex shedding period is approx. 3
+t_initial: [0, 3]    # labeled training data for initial sequence
+t_domain: [0, 18]     # unlabeled collocation (and BC) training data
+
+######################
+# Network Settings
+######################
+
+N_hidden: 8
+N_neurons: 100
+activation: 'tanh'
+
+######################
+# Training Data Settings
+######################
+
+# Number of labeled training points for initial sequence (is batched)
+N_initial: 100000
+N_batch: 1024
+
+# Number of unlabeled training points (anew sampled at each batch iteration)
+# Collocation points
+N_collocation: 256 
+# Boundary Conditions
+N_cylinder: 128
+N_inlet: 128
+N_outlet: 128 
+N_wall: 256
+
+######################
+# Optimizer Settings
+######################
+
+N_epochs: 1000
+learning_rate: 0.001
+decay_rate: 1.0
+
+######################
+# Callback Settings
+######################
+
+freq_log: 1
+freq_print: 10
+keys_print: ['loss_train', 'loss_IC', 'loss_NS', 'loss_BC']
+
