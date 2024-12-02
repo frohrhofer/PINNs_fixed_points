@@ -48,14 +48,14 @@ class DataLoader():
     
     def reference(self, t):
         '''
-        Determines analytical solution for toy example equation
+        Returns analytical solution for toy example equation
         '''       
-        eps = abs(self.y0)
-        try:
-            c = np.sqrt(1/eps**2-1)
-        except ZeroDivisionError:
-            c = 0
-        sign = np.sign(self.y0)
-        
-        y_true = sign*(1+c**2*np.exp(-2*t))**(-1/2)       
-        return self.array2tensor(y_true, exp_dim=False)
+        y_abs = abs(self.y0)
+        y_sign = np.sign(self.y0)
+
+        if np.isclose(y_abs, 0):
+            y = np.zeros(len(t))
+        else:
+            y = (1 + (1/y_abs**2 - 1) * np.exp(-2*t))**(-1/2) 
+   
+        return self.array2tensor(y_sign*y, exp_dim=False)
